@@ -26,9 +26,8 @@ app.get('/', loggedIn, function (req, res) {
     })
 });
 
-app.listen(3000, function () {
-    //console.log('listening on 3000');
-})
+//Lance le server
+let server = app.listen(process.env.PORT || 3000);
 
 ///////PASSPORT//////////////
 
