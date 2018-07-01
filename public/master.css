@@ -1,0 +1,20 @@
+/* general */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* header */
+header {
+    position:sticky;
+}
+
+
+img {
+    margin: 0;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    
+}
