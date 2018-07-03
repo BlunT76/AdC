@@ -447,10 +447,10 @@ function loggedIn(req, res, next) {
 //////////// SQL ///////////////////////
 //connection parameters
 var con = mysql.createConnection({
-    host: "sql7.freemysqlhosting.net",
-    user: "sql7244511",
-    password: "wcUkbMcLNl",
-    database: "sql7244511"
+    host: "huhmiel.heliohost.org",
+    user: "huhmiel",
+    password: "SimplonERN@76",
+    database: "huhmiel_sql7244511"
 });
 
 //Genere un log lors des erreurs sql
