@@ -453,7 +453,7 @@ var con = mysql.createConnection({
     host: "den1.mysql5.gear.host",
     user: "treecompetence",
     password: "Yn22g_8-lY28",
-    database: "huhmiel_sql7244511"
+    database: "treecompetence"
 });
 
 //Genere un log lors des erreurs sql
