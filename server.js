@@ -40,7 +40,9 @@ passport.use('local', new LocalStrategy({
     function (req, username, password, done) { // callback with username and password from our form
         // find a user whose username is the same as the forms username
         // we are checking to see if the user trying to login already exists
-        con.query(`SELECT * FROM client WHERE login = '${username}'`, function (err, rows) {
+        let sql = `SELECT * FROM client WHERE login = ` + con.escape(username);
+        con.query(sql, function (err, rows) {
+        //con.query(`SELECT * FROM client WHERE login = '${username}'`, function (err, rows) {
             ////console.log("ROWS: ", rows)
             if (err)
                 return done(err);
@@ -71,7 +73,8 @@ passport.serializeUser(function (user, done) {
 
 // used to deserialize the user
 passport.deserializeUser(function (id, done) {
-    con.query(`SELECT * FROM client WHERE idclient = ${id}`, function (err, rows) {
+    let sql = `SELECT * FROM client WHERE idclient = ` + con.escape(id);
+    con.query(sql, function (err, rows) {
         if(rows.length){
         done(err, rows[0]);
         } else {
@@ -447,9 +450,9 @@ function loggedIn(req, res, next) {
 //////////// SQL ///////////////////////
 //connection parameters
 var con = mysql.createConnection({
-    host: "huhmiel.heliohost.org",
-    user: "huhmiel",
-    password: "SimplonERN@76",
+    host: "den1.mysql5.gear.host",
+    user: "treecompetence",
+    password: "Yn22g_8-lY28",
     database: "huhmiel_sql7244511"
 });
 
