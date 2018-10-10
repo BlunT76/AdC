@@ -458,10 +458,10 @@ function loggedIn(req, res, next) {
 //////////// SQL ///////////////////////
 //connection parameters
 var con = mysql.createConnection({
-    host: "den1.mysql5.gear.host",
-    user: "treecompetence",
-    password: "Yn22g_8-lY28",
-    database: "treecompetence"
+    host: "",
+    user: "",
+    password: "",
+    database: ""
 });
 
 //Genere un log lors des erreurs sql

@@ -20,6 +20,7 @@ self.addEventListener('install', function(e) {
   );
 });
 
+//Stale-while-revalidate
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.open('AdC').then(function(cache) {
