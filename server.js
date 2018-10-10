@@ -3,6 +3,7 @@ const mysql = require('mysql');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require("bcrypt");
+const fs = require('fs');
 let app = express();
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
@@ -28,7 +29,10 @@ app.get('/', loggedIn, function (req, res) {
 
 //Lance le server
 let server = app.listen(process.env.PORT || 3000);
-
+//cree un tableau d'objet pour creer le fichier json
+var obj = {
+    table: []
+ };
 ///////PASSPORT//////////////
 
 //new local strategie with username and password
@@ -82,6 +86,7 @@ passport.deserializeUser(function (id, done) {
         }
     });
 });
+
 
 //////////GESTION LOGIN////////////
 app.post('/login',
@@ -418,6 +423,9 @@ SELECT AVG(note) AS avg FROM note WHERE ( client_idclientvoter = ${idclient} AND
                        Number(result2[7].avg),
                        Number(result2[8].avg),
                        Number(result2[9].avg)]
+            obj.table.push({id: idclient, comp: compArr, vote: voteArr});
+            var json = JSON.stringify(obj);
+            fs.writeFile('./public/myjsonfile.json', json, 'utf8');
             ////console.log(result)
             var sql = `SELECT * FROM client WHERE login != '${req.user.login}'`;
             con.query(sql, function (err, userlist) {

@@ -1,0 +1,29 @@
+{
+    "name": "Arbre de compétences",
+    "short_name": "AdC",
+    "icons": [{
+      "src": "coco_128x128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      }, {
+        "src": "coco_144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }, {
+        "src": "coco_152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      }, {
+        "src": "coco_192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }, {
+        "src": "coco_256x256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      }],
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FFFFFF",
+    "theme_color": "#FFFFFF"
+  }
