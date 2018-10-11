@@ -4,6 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require("bcrypt");
 const fs = require('fs');
+let {host,user,password,database} = require('./connection.js');
 let app = express();
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
@@ -458,10 +459,10 @@ function loggedIn(req, res, next) {
 //////////// SQL ///////////////////////
 //connection parameters
 var con = mysql.createConnection({
-    host: "",
-    user: "",
-    password: "",
-    database: ""
+    host: host,
+    user: user,
+    password: password,
+    database: database
 });
 
 //Genere un log lors des erreurs sql
