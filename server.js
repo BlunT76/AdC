@@ -28,7 +28,9 @@ app.get('/', loggedIn, function (req, res) {
 });
 
 //Lance le server
-let server = app.listen(process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
+let server = app.listen(port);
+console.log(`Listening to port ${port}!`);
 //cree un tableau d'objet pour creer le fichier json
 var obj = {
     table: []
@@ -458,10 +460,10 @@ function loggedIn(req, res, next) {
 //////////// SQL ///////////////////////
 //connection parameters
 var con = mysql.createConnection({
-    host: "",
-    user: "",
-    password: "",
-    database: ""
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 //Genere un log lors des erreurs sql
